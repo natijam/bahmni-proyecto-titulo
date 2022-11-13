@@ -18,3 +18,10 @@ No es posible  garantizar continuidad asistencial en los establecimientos de sal
 
 ###### Solución 
 Bahmni es un sistema de información hospitalaria de código abierto que pretende satisfacer las necesidades de los entornos de bajos recursos aprovechando un conjunto de productos de código abierto existentes. Bahmni es una distribución OpenMRS. Sitio web: http://www.bahmni.org
+
+
+## Requisitos de máquina
+- sistema operativo centOS version 7.6 (lenguaje linux)
+
+La máquina disponible tiene sistema operativo Windows 10. Por lo tanto Bahmni será instalado en una máquina virtual CentOS. 
+
