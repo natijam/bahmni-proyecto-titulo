@@ -23,5 +23,13 @@ Bahmni es un sistema de información hospitalaria de código abierto que pretend
 ## Requisitos de máquina
 - sistema operativo centOS version 7.6 (lenguaje linux)
 
-La máquina disponible tiene sistema operativo Windows 10. Por lo tanto Bahmni será instalado en una máquina virtual CentOS. 
+La máquina disponible tiene sistema operativo Windows 10. Por lo tanto Bahmni será instalado en una máquina virtual CentOS utilizando VirtualBox. 
+
+## Task list 
+
+- [x] Instalar VirtualBox
+- [ ] Instalar CentOS v7.6
+- [ ] Configurar CentOS 
+- [ ] Instalar Bahmni 
+- [ ] Configurar Bahmni
 
