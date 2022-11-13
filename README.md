@@ -14,3 +14,7 @@ Dentro de un hospital existen varios tipos de sistemas de información, cada ser
 
 ###### Problema
 No es posible  garantizar continuidad asistencial en los establecimientos de salud.  Los datos y su informacion no se mueven con el paciente, por lo tanto, el proceso asistencial se ve dañado. Aún cuando existen sistemas de información, los datos estan en silos o islas de información. Sabemos que el paciente se va a mover, queremos compartir la información 
+
+
+###### Solución 
+Bahmni es un sistema de información hospitalaria de código abierto que pretende satisfacer las necesidades de los entornos de bajos recursos aprovechando un conjunto de productos de código abierto existentes. Bahmni es una distribución OpenMRS. Sitio web: http://www.bahmni.org
