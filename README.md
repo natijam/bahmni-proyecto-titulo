@@ -312,7 +312,7 @@ El diccionario de conceptos contiene todos los términos con los que trabaja el 
 
 ## Internacionalización (i18n)
 
-Los pasos para configurar la internacionalización en el módulo de registro son los siguientes 
+La internacionalización permite que la aplicación esté disponible en varios idiomas. Los pasos para configurar la internacionalización en el módulo de registro son los siguientes 
 
 ```
 # Abrir el terminal 
@@ -326,5 +326,60 @@ sudo nano ‘locale_es.json’
 
 ```
 
+## Crear usuarios 
 
+1.	Iniciar sesión con el usuario “Superman”
+2.	ingresar en la interfaz de administración de OpenMRS (ip)/openmrs/admin 
+3.	Seleccionar el enlace Administrar Usuarios
+4.	Clic en Agregar Usuario
+5.	Click en Siguiente debajo de Crear nueva persona
+6.	Agregar nombre y género de la persona
+7.	Asignar un nombre de usuario y clave
+8.	Asignar los roles al usuario
+9.	Click en Guardar usuario
+10.	Volver a la pantalla de admin 
+11.	Seleccionar Administrar Proveedores
+12.	Seleccionar Agregar Proveedor
+13.	Rellenar el nombre de usuario con el creado anteriormente
+14. Click en Guardar 
+
+
+## Configurar variables globales 
+
+1.	Iniciar sesión con el usuario “Superman”
+2.	ingresar en la interfaz de administración de OpenMRS (ip)/openmrs/admin 
+3.	Seleccionar el enlace Administrar propiedades globales 
+4.	Modificar la lista de géneros
+5.	Modificar los caracteres válidos para el nombre del paciente
+
+## Configurar atributos de paciente en el registro de pacientes 
+
+Las características demográficas son datos que completan la descripción de una persona, como la edad, sexo, donde vive, etc. La configuración de estos atributos se realiza en la pantalla de administración de OpenMRS. 
+
+1.	Iniciar sesión con el usuario “superman”
+2.	Ingresar en la interfaz de administración de OpenMRS (ip)/openmrs/admin 
+3.	Seleccionar el enlace Administrar los tipos de atributos de persona
+4.	Agregar o editar los atributos 
+
+para que los campos de la interfaz de registro contengan la información adecuada, se debe modificar el archivo app.json del directorio /var/www/bahmni_config/openmrs/apps/registration
+
+```
+# Abrir el terminal 
+# Abrir el directorio
+cd /var/www/bahmni_config/openmrs/apps/registration
+# Conocer el contenido del directorio
+ll
+# Abrir el archivo app.json
+sudo nano ‘app.json’
+# El contenido del archivo JSON se encuentra en el github
+```
+
+## configurar jerarquia de direcciones 
+
+1.	Inicie sesión con el usuario “Superman”
+2.	En la página de administración de OpenMRS seleccionar "Configurar jerarquía de direcciones"
+3.	Cargar el archivo CSV que contiene la jerarquía de la siguiente manera 'Región -> Provincia -> Comuna'
+4.	Delimiter: ;
+5.	Overwrite Existing Hierarchy
+6.	Clic Upload
 
