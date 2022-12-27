@@ -295,4 +295,36 @@ bahmni -i local restore --restore_type=db --options=openmrs --strategy=dump   --
 sudo curl -L https://github.com/Lopior/Instalador/edit/main/email-notification.properties >> /opt/openmrs/email-notification.properties
 ```
 
+## Abrir Bahmni 
+En el navegador de chrome, ingresar la IP local donde esta referenciado Bahmni. Se abrirá la pantalla de inicio Log in. Para acceder al programa, se debe iniciar sesión con un usuario y clave. Por defecto existe el usuario “superman” que posee todos los permisos para editar.
+
+'usuario : superman'
+'clave : Admin123'
+
+## Cargar el diccionario de conceptos 
+
+El diccionario de conceptos contiene todos los términos con los que trabaja el software. Los términos son variados, algunos ejemplos corresponden a anatomía, diagnósticos, síntomas, características demográficas, exámenes, etc.  
+1. Iniciar sesión con el usuario superman 
+2. Abrir interfaz de administracion de open mrs 'ip/openmrs/admin'
+3. Abrir 'Search index'
+4. hacer click en 'Rebuild Search Index'
+
+
+## Internacionalización (i18n)
+
+Los pasos para configurar la internacionalización en el módulo de registro son los siguientes 
+
+```
+# Abrir el terminal 
+# Abrir el directorio
+cd /var/www/bahmni_config/openmrs/i18n/registration
+# Conocer el contenido del directorio
+ll
+# Abrir el archivo locale español 
+sudo nano ‘locale_es.json’
+# El contenido del archivo JSON se encuentra en el github
+
+```
+
+
 
