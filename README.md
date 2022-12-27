@@ -78,7 +78,7 @@ Al Iniciar la máquina se abrirá el asistente de instalación de CentOS
 ### Configuración de Red
 
 #### En el terminal 
-"
+```
 # para comprobar si hay conexión a internet utilizar el comando `nmcli` en el terminal
 nmcli
 # acceder al archivo de configuración de redes sólo visualización
@@ -96,7 +96,7 @@ nmcli
 # ahora debe mostrar enp0s3: conectado to enp0s3
 # para conocer el ip de la máquina virtual
 ip a
-"
+```
 
 #### Configuraciones en VirtualBox 
 * Herramientas 
