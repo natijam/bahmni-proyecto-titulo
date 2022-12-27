@@ -19,17 +19,78 @@ No es posible  garantizar continuidad asistencial en los establecimientos de sal
 ###### Solución 
 Bahmni es un sistema de información hospitalaria de código abierto que pretende satisfacer las necesidades de los entornos de bajos recursos aprovechando un conjunto de productos de código abierto existentes. Bahmni es una distribución OpenMRS. Sitio web: http://www.bahmni.org
 
+## Requisitos técnicos
 
-## Requisitos de máquina
-- sistema operativo centOS version 7.6 (lenguaje linux)
+Vamos a crear una máquina virtual CentOS v7.6 utilizando VirtualBox.
 
-La máquina disponible tiene sistema operativo Windows 10. Por lo tanto Bahmni será instalado en una máquina virtual CentOS utilizando VirtualBox. 
+- [VirtualBox](www.virtualbox.org) para Windows Host
+- [CentOS-7-x84_64-DVD-1810.iso](http://ftp.iij.ad.jp/pub/linux/centos-vault/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso)
 
-## Task list 
+## Configuraciones en VirtualBox 
 
-- [x] Instalar VirtualBox
-- [ ] Instalar CentOS v7.6
-- [ ] Configurar CentOS 
-- [ ] Instalar Bahmni 
-- [ ] Configurar Bahmni
+En VirtualBox seleccionar “Nueva”
+
+### General
+- Básico 
+  - Nombre : `CentOS 7.6`
+  - Tipo : `Linux`
+  - Version : `Red Hat (64-bit`
+
+### Sistema 
+- Tamaño de memoria: `2048 MB`
+
+1. Disco duro: Seleccionar "crear un disco duro virtual ahora". Next.
+2. Tipo de archivo de disco duro: VDI (VirtualBox Disk Image). Next.
+3. Almacenamiento en unidad de disco duro física: Reservado dinámicamente. Next
+4. Ubicación del archivo y tamaño: modificar el tamaño del disco a 20 GB. Crear. 
+5. La máquina está creada en VirtualBox
+
+### Almacenamiento 
+
+Seleccionar “Vacío” debajo de “Controlador: IDE”, seleccionar el ícono de disco a la derecha de la ventana. Click en “Seleccionar archivo de disco óptico virtual”. 
+
+- Controlador : IDE 
+  - `CentOS-7-x84_64-DVD-1810.iso`
+
+
+## Configuraciones de instalación de CentOS
+
+Al Iniciar la máquina se abrirá el asistente de instalación de CentOS 
+
+- Idioma: `Español. Chile`
+- En la sección “Sistema”, seleccionar “Destino de la instalación''.
+- Aparecerá seleccionado el disco duro que creamos. Click en `Listo`. 
+- Empezar instalación. 
+
+### Durante la instalación
+
+- Crear clave de administrador “root”. 
+- Crear usuario y clave. 
+  - [ ] Hacer administrador al usuario
+
+## Finalizar instalación
+- `Reiniciar` 
+- License information 
+  - Aceptar el acuerdo de la licencia
+
+## Configuraciones de sistema CentOS
+
+### Configuración de Red
+
+#### En el terminal 
+* para comprobar si hay conexión a internet utilizar el comando `nmcli` en el terminal
+*  `cat /etc/sysconfig/network-scripts/ifcfg-enp0s3`
+* `sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3`
+* `i` para editar el archivo
+* Cambiar `ONBOOT:no` a `ONBOOT:yes`
+* Presionar la tecla “esc”, escribir “:wq”. Enter
+* `sudo systemctl restart network.service`
+* `nmcli`
+* `ip a` para conocer el ip de la máquina virtual
+
+#### Configuraciones en VirtualBox 
+* Herramientas 
+  * Preferencias 
+    * Detalles de la Red NAT
+      - `Reenvío de puertos` 
 
