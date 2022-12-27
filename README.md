@@ -104,3 +104,195 @@ ip a
     * Detalles de la Red NAT
       - `Reenvío de puertos` 
 
+## instalar bahmni
+
+#prerequisitos.
+
+```
+sudo yum install -y https://kojipkgs.fedoraproject.org//packages/zlib/1.2.11/19.fc30/x86_64/zlib-1.2.11-19.fc30.x86_64.rpm
+sudo yum install -y epel-release
+```
+
+#si no funciona, usar : sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+#instalar pip
+```
+sudo yum install python-pip
+sudo pip install pip==v19.0
+
+sudo pip install --upgrade pip
+sudo pip install babel==v1.0 python-stdnum urllib3==1.21.1 idna==2.5 chardet==3.0.2 certifi==2017.4.17 qrcode pyserial pypdf python-chart psycogreen passlib ofxparse requests
+ ```
+ 
+#instalar paqueteria por pip
+```
+sudo pip install babel==v1.0 python-stdnum urllib3==1.21.1 idna==2.5 chardet==3.0.2 certifi==2017.4.17 qrcode pyserial pypdf python-chart psycogreen passlib ofxparse requests
+```
+#En caso que falten paquetes, pueden ser algunos de estos. 
+
+```
+sudo uninstall click
+sudo pip install click==v7.0,
+sudo pip install pyusbl
+sudo pip install decorator==v3.4.0
+sudo pip install beautifulsoup4
+sudo yum install http://repo.mybahmni.org/releases/ansible-2.4.6.0-1.el7.ans.noarch.rpm
+```
+
+#instalar rpm de bahmni desde repositorio.
+```
+sudo yum install -y https://repo.mybahmni.org/releases/bahmni-installer-0.93-219.noarch.rpm
+```
+#instalar posgrest manual por RPM
+```
+rm -f /opt/pgdg-redhat-repo-*
+cd /opt && wget https://repo.mybahmni.org/releases/pgdg-redhat-repo-42.0-23.noarch.rpm
+```
+#Configurar Setup.yml 
+```
+sudo nano /etc/bahmni-installer/setup.yml
+```
+#este es el contenido de setup.yml.
+```
+# To see the list of valid variables in Bahmni please refer to:
+# https://bahmni.atlassian.net/wiki/display/BAH/List+Of+Configurable+Installation+Variables
+
+timezone: America/Santiago
+implementation_name: default
+selinux_state: disabled
+mysql_root_password: poner clave
+mysql_old_root_password: poner clave 
+openerp_url: http://poner ip :8069
+# bahmni_repo_url: http://repo.mybahmni.org.s3-website-ap-southeast-1.amazonaws.com/rpm/bahmni/
+bahmni_repo_url: https://repo.mybahmni.org/releases/
+```
+#Configurar Setup.yml y local segun necesidad
+```
+sudo nano /etc/bahmni-installer/local
+```
+#este es el contenido de local para instalacion en misma maquina full
+```
+localhost ansible_connection=local
+
+[nagios-server]
+
+
+[bahmni-emr]
+localhost
+
+[bahmni-emr-db]
+localhost
+
+[bahmni-emr-db-slave]
+
+[bahmni-erp]
+localhost
+
+[bahmni-erp-db]
+localhost
+
+[bahmni-erp-db-slave]
+
+[bahmni-lab]
+localhost
+
+[bahmni-lab-db]
+localhost
+
+[bahmni-lab-db-slave]
+
+[bahmni-reports]
+localhost
+
+[bahmni-reports-db]
+localhost
+
+[bahmni-reports-db-slave]
+
+[atomfeed-console]
+localhost
+
+[pacs-integration]
+localhost
+
+[pacs-integration-db]
+localhost
+
+[pacs-integration-db-slave]
+
+[dcm4chee]
+localhost
+
+[dcm4chee-db]
+localhost
+
+[dcm4chee-db-slave]
+
+[bahmni-event-log-service]
+localhost 
+
+[bahmni-offline]
+
+[mysql-backup-tool]
+localhost
+
+[postgres-backup-tool]
+localhost
+
+[bahmni-backup-artifacts]
+localhost
+
+[local:children]
+nagios-server
+bahmni-emr
+bahmni-emr-db
+bahmni-emr-db-slave
+bahmni-lab
+bahmni-lab-db
+bahmni-lab-db-slave
+bahmni-erp
+bahmni-erp-db
+bahmni-erp-db-slave
+bahmni-reports
+bahmni-reports-db
+bahmni-reports-db-slave
+pacs-integration
+pacs-integration-db
+pacs-integration-db-slave
+dcm4chee
+dcm4chee-db
+dcm4chee-db-slave
+bahmni-event-log-service
+bahmni-offline
+atomfeed-console
+mysql-backup-tool
+postgres-backup-tool
+bahmni-backup-artifacts
+```
+
+#cargar variables de entorno
+```
+echo "export BAHMNI_INVENTORY=local" >> ~/.bashrc
+source ~/.bashrc
+```
+#correr instalador
+```
+sudo bahmni -i local install 
+```
+
+#backup de bahmni. total
+```
+bahmni -i local backup --backup_type=all --options=all
+```
+#restaurar bahmni
+
+#archivos quedan en /data/ y en /home/bahmni que deben ponerse a mano en maquina destino.
+```
+bahmni -i local restore --restore_type=db --options=openmrs --strategy=dump   --restore_point=openmrs_dump_20170221084218.sql.gz
+```
+#notificaciones bahmni email
+```
+sudo curl -L https://github.com/Lopior/Instalador/edit/main/email-notification.properties >> /opt/openmrs/email-notification.properties
+```
+
+
