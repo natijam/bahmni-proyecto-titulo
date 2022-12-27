@@ -78,15 +78,25 @@ Al Iniciar la máquina se abrirá el asistente de instalación de CentOS
 ### Configuración de Red
 
 #### En el terminal 
-* para comprobar si hay conexión a internet utilizar el comando `nmcli` en el terminal
-*  `cat /etc/sysconfig/network-scripts/ifcfg-enp0s3`
-* `sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3`
-* `i` para editar el archivo
-* Cambiar `ONBOOT:no` a `ONBOOT:yes`
-* Presionar la tecla “esc”, escribir “:wq”. Enter
-* `sudo systemctl restart network.service`
-* `nmcli`
-* `ip a` para conocer el ip de la máquina virtual
+"
+# para comprobar si hay conexión a internet utilizar el comando `nmcli` en el terminal
+nmcli
+# acceder al archivo de configuración de redes sólo visualización
+cat /etc/sysconfig/network-scripts/ifcfg-enp0s3
+# el comando vi permite editar el archivo
+sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+# comando para insertar caracteres en el archivo
+i 
+# Cambiar `ONBOOT:no` a `ONBOOT:yes`
+# Presionar la tecla “esc”
+# el comando :wq guarda los cambios realizados en el archivo
+:wq
+sudo systemctl restart network.service
+nmcli
+# ahora debe mostrar enp0s3: conectado to enp0s3
+# para conocer el ip de la máquina virtual
+ip a
+"
 
 #### Configuraciones en VirtualBox 
 * Herramientas 
