@@ -1,0 +1,11 @@
+# To see the list of valid variables in Bahmni please refer to:
+# https://bahmni.atlassian.net/wiki/display/BAH/List+Of+Configurable+Installation+Variables
+
+timezone: America/Santiago
+implementation_name: default
+selinux_state: disabled
+mysql_root_password: Lopior.123,
+mysql_old_root_password: Lopior.123,
+openerp_url: http://10.100.100.52:8069
+# bahmni_repo_url: http://repo.mybahmni.org.s3-website-ap-southeast-1.amazonaws.com/rpm/bahmni/
+bahmni_repo_url: https://repo.mybahmni.org/releases/
