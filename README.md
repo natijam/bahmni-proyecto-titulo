@@ -104,6 +104,24 @@ ip a
     * Detalles de la Red NAT
       - `Reenvío de puertos` 
 
+
+ip anfitrion | puerto anfitrion | ip invitado | puerto invitado
+--- | --- | --- | ---
+ip anfitrion | 23 | ip invitado | 22
+ip anfitrion | 3306 | ip invitado | 3306
+ip anfitrion | 5432 | ip invitado | 5432
+ip anfitrion | 80 | ip invitado | 80
+ip anfitrion | 11112 | ip invitado | 11112
+ip anfitrion | 443 | ip invitado | 443
+ip anfitrion | 8050 | ip invitado | 8050
+ip anfitrion | 8051 | ip invitado | 8051
+ip anfitrion | 8052 | ip invitado | 8052
+ip anfitrion | 8053 | ip invitado | 8053
+ip anfitrion | 8054 | ip invitado | 8054
+ip anfitrion | 8055 | ip invitado | 8055
+ip anfitrion | 8057 | ip invitado | 8057
+ip anfitrion | 8069 | ip invitado | 8069
+
 ## instalar bahmni
 
 #prerequisitos.
